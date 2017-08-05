@@ -498,6 +498,36 @@ Prefab:
       value: 
       objectReference: {fileID: 4655902040039590, guid: 4bfb802edcd6c4e4c827356ec240846f,
         type: 2}
+    - target: {fileID: 114658737058434682, guid: 4fabd986ae446f74a97f0609e4e46a88,
+        type: 2}
+      propertyPath: spacing.x
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114658737058434682, guid: 4fabd986ae446f74a97f0609e4e46a88,
+        type: 2}
+      propertyPath: spacing.y
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114658737058434682, guid: 4fabd986ae446f74a97f0609e4e46a88,
+        type: 2}
+      propertyPath: width
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114658737058434682, guid: 4fabd986ae446f74a97f0609e4e46a88,
+        type: 2}
+      propertyPath: height
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114658737058434682, guid: 4fabd986ae446f74a97f0609e4e46a88,
+        type: 2}
+      propertyPath: horizontal_align
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114658737058434682, guid: 4fabd986ae446f74a97f0609e4e46a88,
+        type: 2}
+      propertyPath: vertical_align
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4fabd986ae446f74a97f0609e4e46a88, type: 2}
   m_IsPrefabParent: 0
