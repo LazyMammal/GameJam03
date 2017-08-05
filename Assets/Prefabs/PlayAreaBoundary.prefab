@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4309011342434026}
   - component: {fileID: 212088532557761952}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PlayAreaBoundary
   m_TagString: Untagged
   m_Icon: {fileID: 0}
