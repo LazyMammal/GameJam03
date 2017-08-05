@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4646633926888402}
   - component: {fileID: 58950182022979714}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4760943061742128}
   - component: {fileID: 212921292751280578}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,7 +53,7 @@ GameObject:
   - component: {fileID: 4735324108069076}
   - component: {fileID: 50299617665584652}
   - component: {fileID: 114857988340634654}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: HeroBullet
   m_TagString: HeroBullet
   m_Icon: {fileID: 0}
