@@ -5,9 +5,9 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
 
-    public float playerShipThrust;
-    public float playerShipAccelerationBoost;
-    public float playerShipAccelerationMax;
+    public float playerShipThrust = 100.0f;
+    public float playerShipAccelerationBoost = 5.0f;
+    public float playerShipAccelerationMax = 10.0f;
 
     private float playerShipAcceleration = 1f;
     public Rigidbody2D playerShip;
