@@ -15,8 +15,12 @@ public class ZigZagDescend : MonoBehaviour
 	private Vector2 velocity;
 	private Vector3 waypoint;
 
+	private LevelController lvlCtrl;
+
 	void Start()
 	{
+		lvlCtrl = GetComponent<LevelController>();
+
 		descending = false;
 		velocity = new Vector2(-speed, -speed);
 		waypoint = transform.position;

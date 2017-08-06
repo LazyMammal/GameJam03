@@ -40,10 +40,13 @@ public class PlayerController : MonoBehaviour
 
 	public Rigidbody2D playerShip;
 	private Animator playerAnimate;
+	private GameController gameCtrl;
 
-	// Use this for initialization
 	void Start()
 	{
+		GameObject go = GameObject.Find("GameController");
+		gameCtrl = (GameController)go.GetComponent(typeof(GameController));
+
 		playerShield = true;
 		playerDead = false;
 		playerSpin = false;
@@ -102,14 +105,12 @@ public class PlayerController : MonoBehaviour
 			playerShip.AddForce(transform.up * playerShipThrust * playerShipAcceleration * Time.deltaTime);
 
 			playerAnimate.SetBool("PlayerMoveUp", playerShip);
-
 		}
 
 		// thrust player shup down
 		if (Input.GetAxis("Vertical") < 0)
 		{
 			playerShip.AddForce(-transform.up * playerShipThrust * playerShipAcceleration * Time.deltaTime);
-
 		}
 
 		// rotate the player in a random direction by 90 degrees
@@ -142,7 +143,6 @@ public class PlayerController : MonoBehaviour
 			sprite.rotation = Quaternion.Euler(rot.x, rot.y, angle);
 		}
 
-
 		if (Input.GetAxis("Fire3") > 0)
 		{
 			playerDead = true;
@@ -152,6 +152,8 @@ public class PlayerController : MonoBehaviour
 			playerExplosionSource.Play();
 
 			StartCoroutine(ExplosionWait());  // runs a delay to launch in to the explosion animation (to sync it with the explosion audio)
+
+            gameCtrl.PlayerKilled();
 
 			//Destroy(gameObject, this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length + 2.5f);   // destroy player object after explosion animation completes
 

@@ -385,6 +385,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114768407451982860, guid: b75a6dec796422345becdc6e99d5e531,
+        type: 2}
+      propertyPath: levels.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4748722806410476, guid: b75a6dec796422345becdc6e99d5e531, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -442,6 +447,11 @@ Prefab:
       propertyPath: playerShip
       value: 
       objectReference: {fileID: 1565116920}
+    - target: {fileID: 114768407451982860, guid: b75a6dec796422345becdc6e99d5e531,
+        type: 2}
+      propertyPath: levels.Array.data[1]
+      value: 
+      objectReference: {fileID: 1774089308}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b75a6dec796422345becdc6e99d5e531, type: 2}
   m_IsPrefabParent: 0
@@ -454,6 +464,7 @@ GameObject:
   m_Component:
   - component: {fileID: 302099938}
   - component: {fileID: 302099939}
+  - component: {fileID: 302099940}
   m_Layer: 0
   m_Name: Level_01_Invaders
   m_TagString: Untagged
@@ -490,6 +501,19 @@ MonoBehaviour:
   verticalSpacing: 1.2
   horizontalLimits: {x: -2.5, y: 2.5}
   verticalLimits: {x: -10, y: 10}
+--- !u!114 &302099940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 302099937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8521230242a8964b8932d76d88e35f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxLevelDuration: 10
+  usePlayerShip: 1
 --- !u!1 &305763956
 GameObject:
   m_ObjectHideFlags: 0
@@ -2003,6 +2027,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1774089309}
+  - component: {fileID: 1774089310}
+  - component: {fileID: 1774089311}
   m_Layer: 0
   m_Name: LevelTransition
   m_TagString: LevelTransition
@@ -2023,6 +2049,30 @@ Transform:
   m_Father: {fileID: 94091478}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1774089310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1774089308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8521230242a8964b8932d76d88e35f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxLevelDuration: 10
+  usePlayerShip: 0
+--- !u!114 &1774089311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1774089308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8535414154486cd4e810b03269cbf0da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1832347654
 GameObject:
   m_ObjectHideFlags: 0
