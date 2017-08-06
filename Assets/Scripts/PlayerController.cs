@@ -14,12 +14,23 @@ public class PlayerController : MonoBehaviour {
     public float playerShipAccelerationBoost = 5.0f;
     public float playerShipAccelerationMax = 10.0f;
 
-
-
+    // player explosion audio
     public AudioClip playerExplosionAudio;
     private AudioSource playerExplosionSource;
     private float PlayerExplosionVolLowRange = 0.5f;
     private float PlayerExplosionVolHighRange = 1.0f;
+
+    // player engine idle audio
+    public AudioClip playerEngineIdleAudio;
+    private AudioSource playerEngineIdleSource;
+    private float PlayerEngineIdleVolLowRange = 0.5f;
+    private float PlayerEngineIdleVolHighRange = 1.0f;
+
+    // player enging moving audio
+    public AudioClip playerEngineMovingAudio;
+    private AudioSource playerEngineMovingSource;
+    private float PlayerEngineMovingVolLowRange = 0.5f;
+    private float PlayerEngineMovingVolHighRange = 1.0f;
 
     private bool playerShield;
     private bool playerDead;
@@ -47,7 +58,9 @@ public class PlayerController : MonoBehaviour {
         playerShip = GetComponent<Rigidbody2D>();
         playerAnimate = GetComponent<Animator>();
 
-        }
+        playerEngineIdleSource.Play();
+
+    }
 
     public IEnumerator ExplosionWait()
     {
