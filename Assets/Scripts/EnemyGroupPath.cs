@@ -6,29 +6,30 @@ using BansheeGz.BGSpline.Curve;
 
 public class EnemyGroupPath : MonoBehaviour
 {
-	public GameObject path;
+	public GameObject path1, path2;
 	public Transform[] Enemy_Types;
-	public int quantity = 1;
-	public float speed = 10f;
+	public int quantity = 5;
+	public float speed = 7f;
 	public float spacing = 1.5f;
-	private BGCurve curve;
-	private BGCcMath math;
+	private BGCurve curve1, curve2;
+	private BGCcMath math1, math2;
 	private float startTime;
 
 	void Start()
 	{
 		startTime = Time.time;
 
-		//math = gameObject.AddComponent(typeof(BGCcMath)) as BGCcMath;
-		curve = path.GetComponent<BGCurve>();
-		math = path.GetComponent<BGCcMath>();
+		curve1 = path1.GetComponent<BGCurve>();
+		curve2 = path2.GetComponent<BGCurve>();
+		math1 = path1.GetComponent<BGCcMath>();
+		math2 = path2.GetComponent<BGCcMath>();
 
 		Vector3 offset = Vector3.zero;
 
 		// spawn enemies
 		if (Enemy_Types.Length > 0)
 		{
-			for (int j = 0; j < quantity; j++)
+			for (int j = quantity-1; j >=0; j--)
 			{
 				Vector3 pos3 = GetPosition(j * spacing);
 				GameObject item = Enemy_Types[Random.Range(0, Enemy_Types.Length)].gameObject;
@@ -41,25 +42,33 @@ public class EnemyGroupPath : MonoBehaviour
 
 	void Update()
 	{
+		// useful distances
+		var maxDist1 = math1.Math.GetDistance();
+		var maxDist2 = math2.Math.GetDistance();
+
+		float delta = Time.deltaTime * speed;
+		float distPrev = maxDist1 + spacing - .05f;
+
 		// find all children
-		int j = 0;
-		float delta = (Time.time - startTime) * speed;
 		foreach (Transform t in transform)
 		{
 			if (t != transform)
 			{
 				// update positions
-				t.position = GetPosition(delta + j * spacing);
-				j++;
-
-				// TODO: remember actual positions (or else destroying ships is janky)
+				float curDist;
+				var pos = math1.CalcPositionByClosestPoint(t.position, out curDist);
+				distPrev = Mathf.Max(curDist, Mathf.Min(curDist + delta, distPrev - spacing));
+				if( distPrev > curDist + 0.01f ) {
+					pos = GetPosition(distPrev);
+					t.position = pos;
+				}
 			}
 		}
 	}
 
 	Vector3 GetPosition(float distance = 0f)
 	{
-		var section = math.Math[0];
-		return math.Math.CalcByDistance(BGCurveBaseMath.Field.Position, section.DistanceFromStartToOrigin + distance);
+		var section = math1.Math[0];
+		return math1.Math.CalcByDistance(BGCurveBaseMath.Field.Position, section.DistanceFromStartToOrigin + distance);
 	}
 }
