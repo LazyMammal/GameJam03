@@ -547,7 +547,7 @@ Prefab:
       objectReference: {fileID: 1273961293}
     - target: {fileID: 1379318832946866, guid: b75a6dec796422345becdc6e99d5e531, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114768407451982860, guid: b75a6dec796422345becdc6e99d5e531,
         type: 2}
@@ -1222,7 +1222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxLevelDuration: 5
-  minDuration: 0.2
+  minDuration: 2
   isTransition: 1
 --- !u!1 &525651666
 GameObject:
@@ -1743,7 +1743,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxLevelDuration: 5
-  minDuration: 0.2
+  minDuration: 2
   isTransition: 1
 --- !u!1 &688407395
 GameObject:
@@ -1965,7 +1965,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxLevelDuration: 5
-  minDuration: 0.2
+  minDuration: 2
   isTransition: 1
 --- !u!1001 &925733189
 Prefab:
@@ -2669,7 +2669,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxLevelDuration: 5
-  minDuration: 0.2
+  minDuration: 2
   isTransition: 1
 --- !u!1001 &1185834298
 Prefab:
@@ -2843,7 +2843,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxLevelDuration: 5
-  minDuration: 0.2
+  minDuration: 2
   isTransition: 1
 --- !u!1 &1273961293
 GameObject:
@@ -3770,7 +3770,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxLevelDuration: 5
-  minDuration: 0.2
+  minDuration: 2
   isTransition: 1
 --- !u!1 &1832347654
 GameObject:
@@ -3993,7 +3993,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxLevelDuration: 5
-  minDuration: 0.2
+  minDuration: 2
   isTransition: 1
 --- !u!1 &1846560520
 GameObject:
