@@ -2276,8 +2276,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56dc74ced0f127e4786e3fac8054ddda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  path1: {fileID: 1915711069}
-  path2: {fileID: 1915711069}
+  path1: {fileID: 1940325244}
+  path2: {fileID: 1940325244}
   Enemy_Types:
   - {fileID: 4708859300882376, guid: 158e747bc5704fc4fae9eafb9d4bdcc0, type: 2}
   quantity: 6
