@@ -1,8 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
-//[ExecuteInEditMode]
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(BoxCollider2D))]
+[RequireComponent(typeof(AudioSource))]
 
 public class PlayerController : MonoBehaviour {
 
@@ -11,35 +14,64 @@ public class PlayerController : MonoBehaviour {
     public float playerShipAccelerationBoost = 5.0f;
     public float playerShipAccelerationMax = 10.0f;
 
+
+
+    public AudioClip playerExplosionAudio;
+    private AudioSource playerExplosionSource;
+    private float PlayerExplosionVolLowRange = 0.5f;
+    private float PlayerExplosionVolHighRange = 1.0f;
+
+    private bool playerShield;
+    private bool playerDead;
+
     private float playerShipAcceleration = 1f;
 
     public Rigidbody2D playerShip;
     private Animator playerAnimate;
 
 
+
+    private void Awake()
+    {
+
+        playerExplosionSource = GetComponent<AudioSource>();
+
+    }
+
     // Use this for initialization
     void Start () {
+
+        playerShield = true;
+        playerDead = false;
 
         playerShip = GetComponent<Rigidbody2D>();
         playerAnimate = GetComponent<Animator>();
 
+        }
+
+    public IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(1.25f);
+
+        playerAnimate.SetBool("PlayerExplosion", playerDead);       // play explosion animation
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update () {
+
+        if (Input.GetAxis("Horizontal") < 0 || Input.GetAxis("Horizontal") > 0 || Input.GetAxis("Vertical") < 0 || Input.GetAxis("Vertical") > 0 )
+        {
+            if (playerShipAcceleration < playerShipAccelerationMax)
+            {
+                playerShipAcceleration += playerShipAcceleration * playerShipAccelerationBoost * Time.deltaTime;
+            }
+        }
 
 
         // thrust player ship left
         if (Input.GetAxis("Horizontal") < 0)
         {
             playerShip.AddForce(-transform.right * playerShipThrust * playerShipAcceleration * Time.deltaTime);
-
-
-           if (playerShipAcceleration < playerShipAccelerationMax)
-           {
-                playerShipAcceleration += playerShipAcceleration * playerShipAccelerationBoost * Time.deltaTime;
-
-           }
 
         }
 
@@ -48,11 +80,6 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetAxis("Horizontal") > 0)
         {   
             playerShip.AddForce(transform.right * playerShipThrust * playerShipAcceleration * Time.deltaTime);
-
-            if (playerShipAcceleration < playerShipAccelerationMax)
-            {
-                playerShipAcceleration += playerShipAcceleration * playerShipAccelerationBoost * Time.deltaTime;
-            }
 
         }
 
@@ -64,11 +91,6 @@ public class PlayerController : MonoBehaviour {
 
             playerAnimate.SetBool("PlayerMoveUp", playerShip);
 
-            if (playerShipAcceleration < playerShipAccelerationMax)
-            {
-                playerShipAcceleration += playerShipAcceleration * playerShipAccelerationBoost * Time.deltaTime;
-            }
-
         }
 
 
@@ -77,23 +99,30 @@ public class PlayerController : MonoBehaviour {
         {
             playerShip.AddForce(-transform.up * playerShipThrust * playerShipAcceleration * Time.deltaTime);
 
-            if (playerShipAcceleration < playerShipAccelerationMax)
-            {
-                playerShipAcceleration += playerShipAcceleration * playerShipAccelerationBoost * Time.deltaTime;
-            }
         }
 
-        else if (Input.GetAxis("Vertical") == 0 && Input.GetAxis("Horizontal") == 0)  
+        if (Input.GetAxis("Fire3") > 0) {
+
+            playerDead = true;
+
+            playerExplosionSource.Play();
+
+            StartCoroutine(Wait());  // runs a delay to launch in to the explosion animation (to sync it with the explosion audio)
+
+            Destroy(gameObject, this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length + 2.5f);   // destroy player object after explosion animation completes
+            
+        }
+
+
+        else if (Input.GetAxis("Vertical") == 0 && Input.GetAxis("Horizontal") == 0)
         {
             playerShipAcceleration = 1f;
 
             playerAnimate.SetBool("PlayerMoveUp", false);
-
+            playerAnimate.SetBool("PlayerExplosion", false);
 
         }
 
-
-
-
     }
+
 }
