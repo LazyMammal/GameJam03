@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4189346738095772}
   - component: {fileID: 114070440550961034}
+  - component: {fileID: 114791681996077058}
   - component: {fileID: 50071211799161292}
   - component: {fileID: 82029702130306056}
   - component: {fileID: 82582500454528526}
@@ -27,6 +28,21 @@ GameObject:
   m_Layer: 8
   m_Name: PlayerShip
   m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1546021770257592
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4611704017361108}
+  m_Layer: 0
+  m_Name: BulletSpawnPoint
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60,7 +76,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4189346738095772}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4189346738095772
 Transform:
@@ -69,11 +85,25 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1016229643171150}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -3.79, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 4611704017361108}
   - {fileID: 4097207526925390}
   m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4611704017361108
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1546021770257592}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4189346738095772}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &50071211799161292
@@ -401,6 +431,21 @@ MonoBehaviour:
   playerEngineMovingAudio: {fileID: 8300000, guid: 44d578eed323255479c39d77210e44f8,
     type: 3}
   playerShip: {fileID: 50071211799161292}
+--- !u!114 &114791681996077058
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1016229643171150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4f13e82bd36d2d4f90aeb928f3696c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Bullet_Types:
+  - {fileID: 4735324108069076, guid: 65800365a533d8a43a565116c6a8fc09, type: 2}
+  BulletSpawnPoint: {fileID: 4611704017361108}
+  fireRate: 10
 --- !u!212 &212741465456405300
 SpriteRenderer:
   m_ObjectHideFlags: 1
