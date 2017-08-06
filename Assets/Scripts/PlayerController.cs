@@ -49,12 +49,13 @@ public class PlayerController : MonoBehaviour {
 
         }
 
-    public IEnumerator Wait()
+    public IEnumerator ExplosionWait()
     {
         yield return new WaitForSeconds(1.25f);
 
         playerAnimate.SetBool("PlayerExplosion", playerDead);       // play explosion animation
     }
+
 
     // Update is called once per frame
     void Update () {
@@ -101,17 +102,29 @@ public class PlayerController : MonoBehaviour {
 
         }
 
+        if (Input.GetButtonDown("Fire2")) // rotate the player in a random direction by 90 degrees
+        {
+
+            int[] directionChanger = new int[] { -1, 1 };
+
+            gameObject.transform.Rotate(0,0, directionChanger[Random.Range(0, 2)] * 90);
+
+
+        }
+
         if (Input.GetAxis("Fire3") > 0) {
 
             playerDead = true;
 
             playerExplosionSource.Play();
 
-            StartCoroutine(Wait());  // runs a delay to launch in to the explosion animation (to sync it with the explosion audio)
+            StartCoroutine(ExplosionWait());  // runs a delay to launch in to the explosion animation (to sync it with the explosion audio)
 
             Destroy(gameObject, this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length + 2.5f);   // destroy player object after explosion animation completes
             
         }
+
+        
 
 
         else if (Input.GetAxis("Vertical") == 0 && Input.GetAxis("Horizontal") == 0)
