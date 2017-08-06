@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//[ExecuteInEditMode]
+
 public class PlayerController : MonoBehaviour {
 
 
@@ -10,12 +12,16 @@ public class PlayerController : MonoBehaviour {
     public float playerShipAccelerationMax = 10.0f;
 
     private float playerShipAcceleration = 1f;
+
     public Rigidbody2D playerShip;
+    private Animator playerAnimate;
+
 
     // Use this for initialization
     void Start () {
 
         playerShip = GetComponent<Rigidbody2D>();
+        playerAnimate = GetComponent<Animator>();
 
     }
 	
@@ -28,18 +34,12 @@ public class PlayerController : MonoBehaviour {
         {
             playerShip.AddForce(-transform.right * playerShipThrust * playerShipAcceleration * Time.deltaTime);
 
-            
-
 
            if (playerShipAcceleration < playerShipAccelerationMax)
            {
                 playerShipAcceleration += playerShipAcceleration * playerShipAccelerationBoost * Time.deltaTime;
 
            }
-
-
-           
-           //transform.Rotate(0, Time.deltaTime, 0, 0);
 
         }
 
@@ -61,6 +61,8 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetAxis("Vertical") > 0)
         {      
             playerShip.AddForce(transform.up * playerShipThrust * playerShipAcceleration * Time.deltaTime);
+
+            //Animation.
 
             if (playerShipAcceleration < playerShipAccelerationMax)
             {

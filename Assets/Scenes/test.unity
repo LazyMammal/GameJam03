@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 1312892156}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -187,8 +187,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -848326115
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -223,7 +223,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.0001, y: 0.0001}
+  m_Size: {x: 0.9, y: 0.9}
   m_EdgeRadius: 0
 --- !u!50 &1312892157
 Rigidbody2D:
@@ -259,7 +259,7 @@ MonoBehaviour:
   playerShipThrust: 100
   playerShipAccelerationBoost: 5
   playerShipAccelerationMax: 10
-  playerShip: {fileID: 0}
+  playerShip: {fileID: 1312892157}
 --- !u!1 &1673083953
 GameObject:
   m_ObjectHideFlags: 0
