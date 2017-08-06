@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour {
         {      
             playerShip.AddForce(transform.up * playerShipThrust * playerShipAcceleration * Time.deltaTime);
 
-            //Animation.
+            playerAnimate.SetBool("PlayerMoveUp", playerShip);
 
             if (playerShipAcceleration < playerShipAccelerationMax)
             {
@@ -86,6 +86,9 @@ public class PlayerController : MonoBehaviour {
         else if (Input.GetAxis("Vertical") == 0 && Input.GetAxis("Horizontal") == 0)  
         {
             playerShipAcceleration = 1f;
+
+            playerAnimate.SetBool("PlayerMoveUp", false);
+
 
         }
 
