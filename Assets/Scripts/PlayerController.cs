@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
 	public float playerShipThrust = 100.0f;
 	public float playerShipAccelerationBoost = 5.0f;
 	public float playerShipAccelerationMax = 10.0f;
-    public float spinDuration = 1.5f, spinMultiple = 3f;    
+	public float spinDuration = 1.5f, spinMultiple = 3f;
 
 	// player explosion audio
 	public AudioClip playerExplosionAudio;
@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
 	private float PlayerEngineMovingVolHighRange = 1.0f;
 
 	// player state
-	private bool playerShield, playerDead, playerSpin;
+	private bool playerShield, playerDead, playerSpin, playIdleSound;
 	private float playerShipAcceleration = 1f;
 	private float playerTargetRotation = 0f, spinStartTime = 0f, spinStartAngle = 0f;
 
@@ -47,6 +47,7 @@ public class PlayerController : MonoBehaviour
 		playerShield = true;
 		playerDead = false;
 		playerSpin = false;
+		playIdleSound = true;
 
 		playerShip = GetComponent<Rigidbody2D>();
 		playerAnimate = GetComponentInChildren<Animator>();
@@ -56,8 +57,7 @@ public class PlayerController : MonoBehaviour
 		playerEngineIdleSource = aSources[1];
 		playerEngineMovingSource = aSources[2];
 
-		//playerEngineIdleSource.Play();
-
+		playerEngineIdleSource.Play();
 	}
 
 	public IEnumerator ExplosionWait()
@@ -77,6 +77,8 @@ public class PlayerController : MonoBehaviour
 			if (playerShipAcceleration < playerShipAccelerationMax)
 			{
 				playerShipAcceleration += playerShipAcceleration * playerShipAccelerationBoost * Time.deltaTime;
+
+				doThrust();
 			}
 		}
 
@@ -115,25 +117,27 @@ public class PlayerController : MonoBehaviour
 		{
 			// set target direction and Lerp
 			playerSpin = true;
-            spinStartTime = Time.time;
-            Transform sprite = gameObject.transform.GetChild(0).transform;
+			doThrust();
+			spinStartTime = Time.time;
+			Transform sprite = gameObject.transform.GetChild(0).transform;
 			spinStartAngle = sprite.eulerAngles.z;
-            int roundAngle = Mathf.RoundToInt(spinStartAngle / 90f) * 90;
-            float randAngle = Random.Range(1, 4) * 90f;
+			int roundAngle = Mathf.RoundToInt(spinStartAngle / 90f) * 90;
+			float randAngle = Random.Range(1, 4) * 90f;
 			playerTargetRotation = (roundAngle + randAngle) % 360f;
-            //Debug.Log("start angle: " + spinStartAngle + ", target angle: " + playerTargetRotation + ", round angle: " + roundAngle + ", rand: " + randAngle);
+			//Debug.Log("start angle: " + spinStartAngle + ", target angle: " + playerTargetRotation + ", round angle: " + roundAngle + ", rand: " + randAngle);
 		}
 		else if (playerSpin)
 		{
-            var spinPct = (Time.time - spinStartTime) / spinDuration;
+			var spinPct = (Time.time - spinStartTime) / spinDuration;
 			//float angle = Mathf.LerpAngle(spinStartAngle, playerTargetRotation, spinPct );
-            float angle = (spinStartAngle * (1f - spinPct) + (playerTargetRotation + 360f * spinMultiple) * spinPct);
-            var sprite = gameObject.transform.GetChild(0).transform;
-            var rot = sprite.eulerAngles;
+			float angle = (spinStartAngle * (1f - spinPct) + (playerTargetRotation + 360f * spinMultiple) * spinPct);
+			var sprite = gameObject.transform.GetChild(0).transform;
+			var rot = sprite.eulerAngles;
 			if (spinPct >= 1f)
 			{
 				playerSpin = false;
-                angle = Mathf.Round(angle / 90f) * 90f;
+				doIdle();
+				angle = Mathf.Round(angle / 90f) * 90f;
 			}
 			sprite.rotation = Quaternion.Euler(rot.x, rot.y, angle);
 		}
@@ -141,8 +145,10 @@ public class PlayerController : MonoBehaviour
 
 		if (Input.GetAxis("Fire3") > 0)
 		{
-
 			playerDead = true;
+			playIdleSound = false;
+			playerEngineMovingSource.Stop();
+			playerEngineIdleSource.Stop();
 			playerExplosionSource.Play();
 
 			StartCoroutine(ExplosionWait());  // runs a delay to launch in to the explosion animation (to sync it with the explosion audio)
@@ -158,8 +164,29 @@ public class PlayerController : MonoBehaviour
 			playerAnimate.SetBool("PlayerMoveUp", false);
 			playerAnimate.SetBool("PlayerExplosion", false);
 
+			doIdle();
 		}
+	}
+	void doIdle()
+	{
+		// switch back to idle sound
+		if (!playIdleSound && !playerDead)
+		{
+			playIdleSound = true;
+			playerEngineIdleSource.Play();
+			playerEngineMovingSource.Stop();
+		}
+	}
 
+	void doThrust()
+	{
+		// switch to "moving" engine
+		if (playIdleSound && !playerDead)
+		{
+			playIdleSound = false;
+			playerEngineMovingSource.Play();
+			playerEngineIdleSource.Stop();
+		}
 	}
 
 }
