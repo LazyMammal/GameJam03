@@ -13,6 +13,6 @@ public class BulletMover : MonoBehaviour
 	void Start()
 	{
 		rb = gameObject.GetComponent<Rigidbody2D>();
-		rb.velocity = new Vector2(0f, speed);
+		rb.velocity = speed * transform.up;
 	}
 }
