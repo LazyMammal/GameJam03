@@ -6,13 +6,13 @@ using BansheeGz.BGSpline.Curve;
 
 public class EnemyGroupPath : MonoBehaviour
 {
-	public GameObject path1, path2;
+	public GameObject path1;
 	public Transform[] Enemy_Types;
 	public int quantity = 5;
-	public float speed = 7f, blendTime = 15f;
+	public float speed = 7f;
 	public float spacing = 1.5f;
-	private BGCurve curve1, curve2, curve3;
-	private BGCcMath math1, math2, math3;
+	private BGCurve curve1;
+	private BGCcMath math1;
 	private float startTime;
 
 	void Start()
@@ -20,16 +20,7 @@ public class EnemyGroupPath : MonoBehaviour
 		startTime = Time.time;
 
 		curve1 = path1.GetComponent<BGCurve>();
-		curve2 = path2.GetComponent<BGCurve>();
 		math1 = path1.GetComponent<BGCcMath>();
-		math2 = path2.GetComponent<BGCcMath>();
-
-		curve3 = gameObject.AddComponent<BGCurve>();
-		foreach (BGCurvePoint p in curve1.Points)
-		{
-			curve3.AddPoint(p);
-		}
-		math3 = gameObject.AddComponent<BGCcMath>();
 
 		Vector3 offset = Vector3.zero;
 
@@ -50,7 +41,7 @@ public class EnemyGroupPath : MonoBehaviour
 	void Update()
 	{
 		// get children positions as ratios
-		var maxDist = math3.Math.GetDistance();
+		var maxDist = math1.Math.GetDistance();
 		List<Transform> trList = new List<Transform>();
 		List<float> ratioList = new List<float>();
 
@@ -60,49 +51,32 @@ public class EnemyGroupPath : MonoBehaviour
 			{
 				// get current position ratio
 				float curDist;
-				var pos = math3.CalcPositionByClosestPoint(t.position, out curDist);
+				var pos = math1.CalcPositionByClosestPoint(t.position, out curDist);
 				var curRatio = curDist / maxDist;
 				trList.Add(t);
 				ratioList.Add(curRatio);
 			}
 		}
 
-		float blendFactor = Mathf.Min(1.0f, (Time.time - startTime) / blendTime); // 0-1f
-
-		// blend curves together
-		var points1 = curve1.Points;
-		var points2 = curve2.Points;
-		var points3 = curve3.Points;
-
-		for (var i = 0; i < points1.Length && i < points2.Length && i < points3.Length; i++)
-		{
-			points3[i].PositionLocal = Vector3.Lerp(points1[i].PositionLocal, points2[i].PositionLocal, blendFactor);
-			points3[i].ControlFirstLocal = Vector3.Lerp(points1[i].ControlFirstLocal, points2[i].ControlFirstLocal, blendFactor);
-			points3[i].ControlSecondLocal = Vector3.Lerp(points1[i].ControlSecondLocal, points2[i].ControlSecondLocal, blendFactor);
-		}
-
-		// recalculate math object
-		math3.Recalculate();
-
 		// useful distances
-		maxDist = math3.Math.GetDistance();
+		maxDist = math1.Math.GetDistance();
 		var spacingRatio = spacing / maxDist;
 		float deltaRatio = Time.deltaTime * speed / maxDist;
 		float distPrev = maxDist + spacing - .05f;
 
-		// update positions in new blended curve
+		// update positions in curve
 		float ratio = 1f + spacingRatio - 0.01f;
 		for (int j = 0; j < trList.Count && j < ratioList.Count; j++)
 		{
 			ratio = Mathf.Min(ratioList[j] + deltaRatio, ratio - spacingRatio);
-			var pos = math3.CalcByDistanceRatio(BGCurveBaseMath.Field.Position, ratio);
+			var pos = math1.CalcByDistanceRatio(BGCurveBaseMath.Field.Position, ratio);
 			trList[j].position = pos;
 		}
 	}
 
 	Vector3 GetPositionDist(float distance = 0f)
 	{
-		var section = math3.Math[0];
-		return math3.Math.CalcByDistance(BGCurveBaseMath.Field.Position, section.DistanceFromStartToOrigin + distance);
+		var section = math1.Math[0];
+		return math1.Math.CalcByDistance(BGCurveBaseMath.Field.Position, section.DistanceFromStartToOrigin + distance);
 	}
 }
