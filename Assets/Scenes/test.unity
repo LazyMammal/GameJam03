@@ -108,7 +108,7 @@ NavMeshSettings:
     tileSize: 256
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &66199186
+--- !u!1001 &285061979
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -145,31 +145,16 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4111524291990084, guid: 2e88fd371fb095e4c924d428f8c3b860, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 1396761849400830, guid: 2e88fd371fb095e4c924d428f8c3b860, type: 2}
-      propertyPath: m_TagString
-      value: BossDog
+    - target: {fileID: 114447624782834108, guid: 2e88fd371fb095e4c924d428f8c3b860,
+        type: 2}
+      propertyPath: bossDogHealth
+      value: 250
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2e88fd371fb095e4c924d428f8c3b860, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1611904462 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1396761849400830, guid: 2e88fd371fb095e4c924d428f8c3b860,
-    type: 2}
-  m_PrefabInternal: {fileID: 66199186}
---- !u!114 &1611904469
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1611904462}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c03c56bc69aed8b489f2b0a4b42cf26e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1673083953
 GameObject:
   m_ObjectHideFlags: 0
@@ -296,7 +281,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4189346738095772, guid: ed9e01ba868c3554aad84f24c0e576cf, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1016229643171150, guid: ed9e01ba868c3554aad84f24c0e576cf, type: 2}
       propertyPath: m_IsActive
