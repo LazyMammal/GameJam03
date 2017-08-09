@@ -7,7 +7,7 @@ public class GameController : MonoBehaviour
 {
 	public GameObject[] levels;
 	public GameObject startSplash, gameOver, mainGame, playerShip;
-	public int maxPlayerLives = 3;
+	public int maxPlayerLives = 3, startLevel = -1;
 
 	private int levelCode = -1;  // startSplash == -1
 	private int playerLivesCount = 0;
@@ -32,6 +32,9 @@ public class GameController : MonoBehaviour
 	void Start()
 	{
 		playerLivesCount = maxPlayerLives;
+		if (startLevel >= 0 && startLevel < levels.Length) {
+			AdvanceLevel(startLevel);
+		}
 	}
 
 	// Update is called once per frame
@@ -40,10 +43,6 @@ public class GameController : MonoBehaviour
 		// startSplash - any key
 		if (!isGameOver && levelCode < 0 && Input.anyKey)
 		{
-			startSplash.SetActive(false);
-			gameOver.SetActive(false);
-			mainGame.SetActive(true);
-			playerShip.SetActive(true);
 			AdvanceLevel();
 		}
 		else if (isGameOver)
@@ -60,12 +59,23 @@ public class GameController : MonoBehaviour
 		}
 	}
 
-	public void AdvanceLevel()
+	public void AdvanceLevel(int level = -1)
 	{
-		levelCode += 1;
+		if (level >= 0)
+		{
+			levelCode = level;
+		}
+		else
+		{
+			levelCode += 1;
+		}
+
 		if (levelCode >= 0 && levelCode < levels.Length)
 		{
 			Debug.Log("Advance Level: changing to level " + levelCode);
+			startSplash.SetActive(false);
+			gameOver.SetActive(false);
+			mainGame.SetActive(true);
 			levels[levelCode].SetActive(true);
 			lvlCtrl = (LevelController)levels[levelCode].GetComponent(typeof(LevelController));
 			lvlCtrl.DoLevelStart(levelCode);
