@@ -150,7 +150,22 @@ Prefab:
     - target: {fileID: 114447624782834108, guid: 2e88fd371fb095e4c924d428f8c3b860,
         type: 2}
       propertyPath: bossDogHealth
-      value: 250
+      value: 255
+      objectReference: {fileID: 0}
+    - target: {fileID: 212623655986778758, guid: 2e88fd371fb095e4c924d428f8c3b860,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212623655986778758, guid: 2e88fd371fb095e4c924d428f8c3b860,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212623655986778758, guid: 2e88fd371fb095e4c924d428f8c3b860,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2e88fd371fb095e4c924d428f8c3b860, type: 2}
