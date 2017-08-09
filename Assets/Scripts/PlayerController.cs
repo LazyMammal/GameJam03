@@ -163,8 +163,8 @@ public class PlayerController : MonoBehaviour
 		{
 			playerShipAcceleration = 1f;
 
-			playerAnimate.SetBool("PlayerMoveUp", false);
-			playerAnimate.SetBool("PlayerExplosion", false);
+			//playerAnimate.SetBool("PlayerMoveUp", false);
+			//playerAnimate.SetBool("PlayerExplosion", false);
 
 			doIdle();
 		}
