@@ -429,14 +429,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   path1: {fileID: 525651666}
-  path2: {fileID: 525651666}
   Enemy_Types:
   - {fileID: 4708859300882376, guid: 270a4b45c6fede84c8b876b7406a8f7c, type: 2}
   - {fileID: 4708859300882376, guid: 2a4fd3e2092ea4f44b804b4b45bbe988, type: 2}
   - {fileID: 4708859300882376, guid: 027b88e1cf2ff7b4aa98fd8606cf53a8, type: 2}
   quantity: 7
   speed: 5
-  blendTime: 99
   spacing: 1.5
 --- !u!1001 &276424966
 Prefab:
@@ -445,11 +443,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114768407451982860, guid: b75a6dec796422345becdc6e99d5e531,
-        type: 2}
-      propertyPath: levels.Array.size
-      value: 14
-      objectReference: {fileID: 0}
     - target: {fileID: 4748722806410476, guid: b75a6dec796422345becdc6e99d5e531, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -487,26 +480,6 @@ Prefab:
       propertyPath: levels.Array.data[0]
       value: 
       objectReference: {fileID: 302099937}
-    - target: {fileID: 114768407451982860, guid: b75a6dec796422345becdc6e99d5e531,
-        type: 2}
-      propertyPath: startSplash
-      value: 
-      objectReference: {fileID: 1511833801}
-    - target: {fileID: 114768407451982860, guid: b75a6dec796422345becdc6e99d5e531,
-        type: 2}
-      propertyPath: gameOver
-      value: 
-      objectReference: {fileID: 1530412010}
-    - target: {fileID: 114768407451982860, guid: b75a6dec796422345becdc6e99d5e531,
-        type: 2}
-      propertyPath: mainGame
-      value: 
-      objectReference: {fileID: 405822616}
-    - target: {fileID: 114768407451982860, guid: b75a6dec796422345becdc6e99d5e531,
-        type: 2}
-      propertyPath: playerShip
-      value: 
-      objectReference: {fileID: 1565116920}
     - target: {fileID: 114768407451982860, guid: b75a6dec796422345becdc6e99d5e531,
         type: 2}
       propertyPath: levels.Array.data[1]
@@ -547,10 +520,6 @@ Prefab:
       propertyPath: levels.Array.data[8]
       value: 
       objectReference: {fileID: 1273961293}
-    - target: {fileID: 1379318832946866, guid: b75a6dec796422345becdc6e99d5e531, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 114768407451982860, guid: b75a6dec796422345becdc6e99d5e531,
         type: 2}
       propertyPath: levels.Array.data[9]
@@ -578,14 +547,24 @@ Prefab:
       objectReference: {fileID: 2002858050}
     - target: {fileID: 114768407451982860, guid: b75a6dec796422345becdc6e99d5e531,
         type: 2}
-      propertyPath: levelCode
-      value: -1
-      objectReference: {fileID: 0}
+      propertyPath: startSplash
+      value: 
+      objectReference: {fileID: 1511833801}
     - target: {fileID: 114768407451982860, guid: b75a6dec796422345becdc6e99d5e531,
         type: 2}
-      propertyPath: startLevel
-      value: 6
-      objectReference: {fileID: 0}
+      propertyPath: gameOver
+      value: 
+      objectReference: {fileID: 1530412010}
+    - target: {fileID: 114768407451982860, guid: b75a6dec796422345becdc6e99d5e531,
+        type: 2}
+      propertyPath: mainGame
+      value: 
+      objectReference: {fileID: 405822616}
+    - target: {fileID: 114768407451982860, guid: b75a6dec796422345becdc6e99d5e531,
+        type: 2}
+      propertyPath: playerShip
+      value: 
+      objectReference: {fileID: 1565116920}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b75a6dec796422345becdc6e99d5e531, type: 2}
   m_IsPrefabParent: 0
@@ -752,13 +731,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   path1: {fileID: 610573044}
-  path2: {fileID: 610573044}
   Enemy_Types:
   - {fileID: 4708859300882376, guid: 499460c5a7384cf43a0195eb173c1daa, type: 2}
   - {fileID: 4708859300882376, guid: e755eb68960016d4d827fc770a168a09, type: 2}
   quantity: 7
   speed: 11
-  blendTime: 99
   spacing: 1.5
 --- !u!1001 &379816927
 Prefab:
@@ -797,10 +774,6 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4189346738095772, guid: ed9e01ba868c3554aad84f24c0e576cf, type: 2}
       propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1016229643171150, guid: ed9e01ba868c3554aad84f24c0e576cf, type: 2}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1062,14 +1035,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   path1: {fileID: 1846560520}
-  path2: {fileID: 1846560520}
   Enemy_Types:
   - {fileID: 4708859300882376, guid: 9d634db4e94a3ec45b3ce644fc912152, type: 2}
   - {fileID: 4708859300882376, guid: fdf3783ebcc6ed047b918a387c60b074, type: 2}
   - {fileID: 4708859300882376, guid: 1f70a77a31d54de4da2561be9e03c1d1, type: 2}
   quantity: 9
   speed: 8
-  blendTime: 99
   spacing: 1.5
 --- !u!1001 &518452580
 Prefab:
@@ -1812,12 +1783,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   path1: {fileID: 0}
-  path2: {fileID: 0}
   Enemy_Types:
   - {fileID: 4708859300882376, guid: 158e747bc5704fc4fae9eafb9d4bdcc0, type: 2}
   quantity: 5
   speed: 5
-  blendTime: 99
   spacing: 1.5
 --- !u!1001 &781638447
 Prefab:
@@ -3048,12 +3017,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   path1: {fileID: 1832347654}
-  path2: {fileID: 1832347654}
   Enemy_Types:
   - {fileID: 4708859300882376, guid: 4cb079b6ac13b6140b63280af03d4dca, type: 2}
   quantity: 5
   speed: 11
-  blendTime: 99
   spacing: 1.5
 --- !u!4 &1460727398 stripped
 Transform:
@@ -3467,14 +3434,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   path1: {fileID: 1940325244}
-  path2: {fileID: 1940325244}
   Enemy_Types:
   - {fileID: 4708859300882376, guid: bd8fa99dd3df6f644aa9107f2f720dfa, type: 2}
   - {fileID: 4708859300882376, guid: 9c34433f1233ccd4b8d734e317881637, type: 2}
   - {fileID: 4708859300882376, guid: 09d99231be8206a4a99cd222f2a5e216, type: 2}
   quantity: 7
   speed: 11
-  blendTime: 99
   spacing: 1.5
 --- !u!4 &1529711958 stripped
 Transform:
@@ -3532,12 +3497,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   path1: {fileID: 1493073193}
-  path2: {fileID: 1493073193}
   Enemy_Types:
   - {fileID: 4708859300882376, guid: 499460c5a7384cf43a0195eb173c1daa, type: 2}
   quantity: 11
   speed: 11
-  blendTime: 99
   spacing: 1.5
 --- !u!1 &1648847921
 GameObject:
@@ -3580,13 +3543,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   path1: {fileID: 525651666}
-  path2: {fileID: 525651666}
   Enemy_Types:
   - {fileID: 4708859300882376, guid: 499460c5a7384cf43a0195eb173c1daa, type: 2}
   - {fileID: 4708859300882376, guid: e755eb68960016d4d827fc770a168a09, type: 2}
   quantity: 7
   speed: 11
-  blendTime: 99
   spacing: 1.5
 --- !u!1 &1663038443
 GameObject:
@@ -3670,12 +3631,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   path1: {fileID: 1915711069}
-  path2: {fileID: 1915711069}
   Enemy_Types:
   - {fileID: 4708859300882376, guid: 158e747bc5704fc4fae9eafb9d4bdcc0, type: 2}
   quantity: 6
   speed: 10
-  blendTime: 99
   spacing: 1.5
 --- !u!1 &1669756618
 GameObject:
@@ -4784,12 +4743,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   path1: {fileID: 2112564749}
-  path2: {fileID: 2112564749}
   Enemy_Types:
   - {fileID: 4708859300882376, guid: e755eb68960016d4d827fc770a168a09, type: 2}
   quantity: 5
   speed: 11
-  blendTime: 99
   spacing: 1.5
 --- !u!1 &2073503013
 GameObject:
@@ -5087,10 +5044,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   path1: {fileID: 1915711069}
-  path2: {fileID: 1915711069}
   Enemy_Types:
   - {fileID: 4708859300882376, guid: e755eb68960016d4d827fc770a168a09, type: 2}
   quantity: 5
   speed: 11
-  blendTime: 99
   spacing: 1.5

@@ -53,7 +53,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levels:
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   startSplash: {fileID: 0}
   gameOver: {fileID: 0}
   mainGame: {fileID: 0}
   playerShip: {fileID: 0}
+  maxPlayerLives: 3
+  startLevel: -1
