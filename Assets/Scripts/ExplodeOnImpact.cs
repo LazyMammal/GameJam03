@@ -4,18 +4,21 @@ using UnityEngine;
 
 public class ExplodeOnImpact : MonoBehaviour
 {
-	public Animator anim;
+	public GameObject explosion;
 
 	void Start() {
-		anim = GetComponentInChildren<Animator>();
+		//if( explosion == null) {
+			//explosion = GameObject.Find("Explosion");
+			explosion = (GameObject) Resources.Load("Explosion");
+		//}
 	}
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		if (other.gameObject.CompareTag("Player"))
+		if (other.gameObject.CompareTag("Player") && explosion != null)
 		{
-			anim.SetBool("Explode", true);
 			// TODO: notify scoring system
-			//Destroy(gameObject);
+			GameObject go = (GameObject)Instantiate(explosion, transform.position, Quaternion.identity);
+			Destroy(gameObject);
 		}
 	}
 }
