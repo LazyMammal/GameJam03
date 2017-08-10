@@ -12,6 +12,7 @@ public class BossDogController : MonoBehaviour {
     // Use this for initialization
     void Start () {
 
+        bossDogHealth = 255;
     }
 	
 	// Update is called once per frame
@@ -19,7 +20,7 @@ public class BossDogController : MonoBehaviour {
 
         GetComponent<SpriteRenderer>().color = new Color32(255, bossDogHealth, bossDogHealth, 255);
 
-        Debug.Log(bossDogHealth);
+        //Debug.Log(bossDogHealth);
 
     }
 
