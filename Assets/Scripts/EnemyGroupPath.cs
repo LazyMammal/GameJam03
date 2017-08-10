@@ -22,8 +22,6 @@ public class EnemyGroupPath : MonoBehaviour
 		curve1 = path1.GetComponent<BGCurve>();
 		math1 = path1.GetComponent<BGCcMath>();
 
-		Vector3 offset = Vector3.zero;
-
 		// spawn enemies
 		if (Enemy_Types.Length > 0)
 		{
@@ -31,8 +29,8 @@ public class EnemyGroupPath : MonoBehaviour
 			{
 				Vector3 pos3 = GetPositionDist(j * spacing);
 				GameObject item = Enemy_Types[Random.Range(0, Enemy_Types.Length)].gameObject;
-				GameObject go = (GameObject)Instantiate(item, transform.position + pos3 + offset, transform.rotation);
-				go.transform.SetParent(transform);
+				GameObject go = (GameObject)Instantiate(item, pos3, Quaternion.identity); // local space coordinates
+				go.transform.SetParent(transform, false); // transform to world space by nesting with parent
 			}
 		}
 
@@ -51,7 +49,7 @@ public class EnemyGroupPath : MonoBehaviour
 			{
 				// get current position ratio
 				float curDist;
-				var pos = math1.CalcPositionByClosestPoint(t.position, out curDist);
+				var pos = math1.CalcPositionByClosestPoint(t.localPosition, out curDist); // compare using local position
 				var curRatio = curDist / maxDist;
 				trList.Add(t);
 				ratioList.Add(curRatio);
@@ -70,7 +68,7 @@ public class EnemyGroupPath : MonoBehaviour
 		{
 			ratio = Mathf.Min(ratioList[j] + deltaRatio, ratio - spacingRatio);
 			var pos = math1.CalcByDistanceRatio(BGCurveBaseMath.Field.Position, ratio);
-			trList[j].position = pos;
+			trList[j].localPosition = pos; // set via local position
 		}
 	}
 
