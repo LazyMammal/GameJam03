@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BossDogController : MonoBehaviour {
 
-    public float bossDogHealth;
+    public byte bossDogHealth;
 
     private Animator bossdogAnimate;
 
@@ -12,14 +12,14 @@ public class BossDogController : MonoBehaviour {
     // Use this for initialization
     void Start () {
 
-        GetComponent<SpriteRenderer>().color = new Color(bossDogHealth, 0f, 0f, 1f);
-
     }
 	
 	// Update is called once per frame
 	void Update () {
 
-        GetComponent<SpriteRenderer>().color = new Color(255f, bossDogHealth, bossDogHealth, 1f);
+        GetComponent<SpriteRenderer>().color = new Color32(255, bossDogHealth, bossDogHealth, 255);
+
+        Debug.Log(bossDogHealth);
 
     }
 
@@ -32,8 +32,6 @@ public class BossDogController : MonoBehaviour {
             Invoke("SetBoolBack", 0.5f);
 
             bossDogHealth--;
-
-            
 
             if (bossDogHealth == 0)
             {

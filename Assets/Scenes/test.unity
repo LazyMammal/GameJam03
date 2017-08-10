@@ -108,7 +108,7 @@ NavMeshSettings:
     tileSize: 256
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &285061979
+--- !u!1001 &1255756229
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -121,7 +121,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4111524291990084, guid: 2e88fd371fb095e4c924d428f8c3b860, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4111524291990084, guid: 2e88fd371fb095e4c924d428f8c3b860, type: 2}
       propertyPath: m_LocalPosition.z
@@ -145,26 +145,6 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4111524291990084, guid: 2e88fd371fb095e4c924d428f8c3b860, type: 2}
       propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114447624782834108, guid: 2e88fd371fb095e4c924d428f8c3b860,
-        type: 2}
-      propertyPath: bossDogHealth
-      value: 255
-      objectReference: {fileID: 0}
-    - target: {fileID: 212623655986778758, guid: 2e88fd371fb095e4c924d428f8c3b860,
-        type: 2}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 212623655986778758, guid: 2e88fd371fb095e4c924d428f8c3b860,
-        type: 2}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 212623655986778758, guid: 2e88fd371fb095e4c924d428f8c3b860,
-        type: 2}
-      propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -296,7 +276,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4189346738095772, guid: ed9e01ba868c3554aad84f24c0e576cf, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1016229643171150, guid: ed9e01ba868c3554aad84f24c0e576cf, type: 2}
       propertyPath: m_IsActive
