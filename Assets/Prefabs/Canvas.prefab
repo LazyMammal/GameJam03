@@ -240,7 +240,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1296809530002252
 GameObject:
   m_ObjectHideFlags: 1
@@ -452,7 +452,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1593415492784738
 GameObject:
   m_ObjectHideFlags: 1
@@ -1535,8 +1535,8 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Oh no\u2026 The Laughing Dog is back with a vengeance!\r\nHe\u2019s cloned
-    our favourite game characters and has captured our heros\r\nShoot the clones to
-    help free them!!!\r"
+    our favourite game characters and has captured our heroes\r\nShoot the clones
+    to help free them!!!\r"
 --- !u!212 &212021028593290478
 SpriteRenderer:
   m_ObjectHideFlags: 1
