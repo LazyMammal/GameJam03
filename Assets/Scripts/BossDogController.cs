@@ -29,12 +29,12 @@ public class BossDogController : MonoBehaviour
 			{
 				GetComponent<Animator>().SetBool("BossDogHit", true);
 				Invoke("SetBoolBack", 0.5f);
-    			bossDogHealth--;
+				bossDogHealth--;
 			}
 
 			if (bossDogHealth <= 0)
 			{
-                GetComponent<Animator>().SetBool("BossDogHit", true);
+				GetComponent<Animator>().SetBool("BossDogHit", true);
 				aSource.Play();
 				foreach (Transform t in transform)
 				{
@@ -54,8 +54,8 @@ public class BossDogController : MonoBehaviour
 
 	public IEnumerator DeathWait()
 	{
-		yield return new WaitForSeconds(1.25f);
-        gameCtrl.EnemyKilled(gameObject.GetInstanceID());
+		yield return new WaitForSeconds(2f);
+		gameCtrl.EnemyKilled(gameObject.GetInstanceID());
 		Destroy(gameObject);
 	}
 
