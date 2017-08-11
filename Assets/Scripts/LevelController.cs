@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LevelController : MonoBehaviour
 {
-	private GameController gameCtrl;
+	public GameController gameCtrl;
 	public float maxLevelDuration = 10f; // time kill level
 	public float minDuration = 1f;
 	public bool isTransition = false;
@@ -13,9 +13,11 @@ public class LevelController : MonoBehaviour
 
 	public void DoLevelStart(int levelCode)
 	{
-		GameObject go = GameObject.Find("GameController");
-		gameCtrl = (GameController)go.GetComponent(typeof(GameController));
-
+		if (gameCtrl == null)
+		{
+			GameObject go = GameObject.Find("GameController");
+			gameCtrl = (GameController)go.GetComponent(typeof(GameController));
+		}
 		levelStartTime = Time.time;
 		levelActive = true;
 		gameCtrl.SetPlayerShip(!isTransition);

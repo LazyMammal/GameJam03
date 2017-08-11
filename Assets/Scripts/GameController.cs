@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
 	public GameObject[] levels;
-	public GameObject startSplash, gameOver, mainGame, playerShip;
+	public GameObject startSplash, gameOver, mainGame, playerShip, scoreText;
 	public int maxPlayerLives = 3, startLevel = -1;
+	public int playerScore = 0, killScore = 5;
 
 	private int levelCode = -1;  // startSplash == -1
 	private int playerLivesCount = 0;
@@ -95,6 +97,13 @@ public class GameController : MonoBehaviour
 		{
 			DoGameOver();
 		}
+	}
+
+	public void EnemyKilled()
+	{
+		playerScore += killScore;
+		Text txt = scoreText.GetComponent<Text>();
+		txt.text = playerScore.ToString();
 	}
 
 	public void DoGameOver()
