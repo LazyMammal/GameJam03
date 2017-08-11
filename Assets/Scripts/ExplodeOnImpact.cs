@@ -23,7 +23,7 @@ public class ExplodeOnImpact : MonoBehaviour
 	{
 		if (other.gameObject.CompareTag("Player"))
 		{
-			gameCtrl.EnemyKilled(gameObject.GetInstanceID());
+			gameCtrl.EnemyKilled(gameObject.GetInstanceID(), false);
 			GameObject go = (GameObject)Instantiate(explosion, transform.position, Quaternion.identity);
 			Destroy(gameObject);
 		}

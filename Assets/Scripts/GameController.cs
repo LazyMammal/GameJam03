@@ -107,12 +107,13 @@ public class GameController : MonoBehaviour
 	{
 		lvlCtrl.EnemySpawned(id);
 	}
-	public void EnemyKilled(int id)
+	public void EnemyKilled(int id, bool playerIsKiller = true)
 	{
-		playerScore += killScore;
+		if (playerIsKiller)
+			playerScore += killScore;
 		Text txt = scoreText.GetComponent<Text>();
 		txt.text = playerScore.ToString();
-		lvlCtrl.EnemyKilled(id);
+		lvlCtrl.EnemyKilled(id, playerIsKiller);
 	}
 
 	public void DoGameOver()

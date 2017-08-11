@@ -47,7 +47,7 @@ public class LevelController : MonoBehaviour
 		enemySet.Add(id);
 		spawnFlag = true;
 	}
-	public void EnemyKilled(int id)
+	public void EnemyKilled(int id, bool playerIsKiller = true)
 	{
 		enemySet.Remove(id);
 		if(spawnFlag && enemySet.Count == 0)
