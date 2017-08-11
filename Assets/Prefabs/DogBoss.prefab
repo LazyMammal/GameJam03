@@ -334,6 +334,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossDogHealth: 255
+  numBossExplosions: 3
+  explosion: {fileID: 0}
   gameCtrl: {fileID: 0}
 --- !u!114 &114914228735035704
 MonoBehaviour:

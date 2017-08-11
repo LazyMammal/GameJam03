@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class BulletsKill : MonoBehaviour
 {
-	public GameObject explosion;
+	public GameObject explosion, bulletHit;
 	public GameController gameCtrl;
 	void Start()
 	{
 		if (explosion == null)
 		{
 			explosion = (GameObject)Resources.Load("Explosion");
+		}
+		if (bulletHit == null)
+		{
+			bulletHit = (GameObject)Resources.Load("BulletHit");
 		}
 		if (gameCtrl == null)
 		{
@@ -23,8 +27,13 @@ public class BulletsKill : MonoBehaviour
 		if (other.gameObject.CompareTag("Bullet"))
 		{
 			gameCtrl.EnemyKilled(gameObject.GetInstanceID());
+
 			Destroy(other.transform.parent.gameObject);
-			GameObject go = (GameObject)Instantiate(explosion, transform.position, Quaternion.identity);
+			Instantiate(bulletHit, other.transform.position, Quaternion.identity);
+
+			Quaternion rot = Quaternion.Euler(0, 0, Random.Range(0f, 360f));
+			Instantiate(explosion, transform.position, rot);
+
 			Destroy(gameObject);
 		}
 	}

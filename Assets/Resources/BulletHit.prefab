@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114643967042893054}
   - component: {fileID: 82087725232686142}
   m_Layer: 0
-  m_Name: Explosion
+  m_Name: BulletHit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49,7 +49,7 @@ AudioSource:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1215655397366422}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: ba35c02153f53d74ebc747f092e802b0, type: 3}
@@ -132,7 +132,7 @@ Animator:
   m_GameObject: {fileID: 1215655397366422}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 03b663c5a62463647bd99b4aaf3d1297, type: 2}
+  m_Controller: {fileID: 9100000, guid: 3cbb511ca5d76b243bad0a44e71f66a3, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -189,7 +189,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.14, y: 0.19}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
