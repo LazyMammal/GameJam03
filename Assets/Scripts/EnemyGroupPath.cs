@@ -81,6 +81,15 @@ public class EnemyGroupPath : MonoBehaviour
 				ratio = Mathf.Min(ratioList[j] + deltaRatio, ratio - spacingRatio);
 				var pos = math1.CalcByDistanceRatio(BGCurveBaseMath.Field.Position, ratio);
 				trList[j].localPosition = pos; // set via local position
+
+				// if ratio is close to 1.0, remove from list of children and zoom to player
+				if (ratio >= .95f)
+				{
+					trList[j].parent = null;
+					trList[j].gameObject.AddComponent(typeof(HomingDuck));
+					HomingDuck hd = trList[j].gameObject.GetComponent<HomingDuck>();
+					hd.speed = speed * .9f;
+				}
 			}
 		}
 	}

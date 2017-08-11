@@ -655,27 +655,27 @@ Prefab:
         type: 2}
       propertyPath: levels.Array.data[9]
       value: 
-      objectReference: {fileID: 1185834300}
+      objectReference: {fileID: 1470507899}
     - target: {fileID: 114768407451982860, guid: b75a6dec796422345becdc6e99d5e531,
         type: 2}
       propertyPath: levels.Array.data[10]
       value: 
-      objectReference: {fileID: 2073503013}
+      objectReference: {fileID: 1478328863}
     - target: {fileID: 114768407451982860, guid: b75a6dec796422345becdc6e99d5e531,
         type: 2}
       propertyPath: levels.Array.data[11]
       value: 
-      objectReference: {fileID: 518452582}
+      objectReference: {fileID: 1185834300}
     - target: {fileID: 114768407451982860, guid: b75a6dec796422345becdc6e99d5e531,
         type: 2}
       propertyPath: levels.Array.data[12]
       value: 
-      objectReference: {fileID: 617214250}
+      objectReference: {fileID: 2073503013}
     - target: {fileID: 114768407451982860, guid: b75a6dec796422345becdc6e99d5e531,
         type: 2}
       propertyPath: levels.Array.data[13]
       value: 
-      objectReference: {fileID: 2002858050}
+      objectReference: {fileID: 518452582}
     - target: {fileID: 114768407451982860, guid: b75a6dec796422345becdc6e99d5e531,
         type: 2}
       propertyPath: startSplash
@@ -699,23 +699,23 @@ Prefab:
     - target: {fileID: 114768407451982860, guid: b75a6dec796422345becdc6e99d5e531,
         type: 2}
       propertyPath: startLevel
-      value: 15
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 114768407451982860, guid: b75a6dec796422345becdc6e99d5e531,
         type: 2}
       propertyPath: levels.Array.data[14]
       value: 
-      objectReference: {fileID: 415502446}
+      objectReference: {fileID: 617214250}
     - target: {fileID: 114768407451982860, guid: b75a6dec796422345becdc6e99d5e531,
         type: 2}
       propertyPath: levels.Array.data[15]
       value: 
-      objectReference: {fileID: 1470507899}
+      objectReference: {fileID: 2002858050}
     - target: {fileID: 114768407451982860, guid: b75a6dec796422345becdc6e99d5e531,
         type: 2}
       propertyPath: levels.Array.data[16]
       value: 
-      objectReference: {fileID: 1478328863}
+      objectReference: {fileID: 415502446}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b75a6dec796422345becdc6e99d5e531, type: 2}
   m_IsPrefabParent: 0
