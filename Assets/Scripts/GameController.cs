@@ -15,6 +15,7 @@ public class GameController : MonoBehaviour
 	private int playerLivesCount = 0;
 	private bool isGameOver = false;
 	private LevelController lvlCtrl;
+	private AudioSource aSource;
 
 	// early start code
 	void Awake()
@@ -33,6 +34,7 @@ public class GameController : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
+		aSource = GetComponent<AudioSource>();
 		playerLivesCount = maxPlayerLives;
 		if (startLevel >= 0 && startLevel < levels.Length)
 		{
@@ -46,6 +48,7 @@ public class GameController : MonoBehaviour
 		// startSplash - any key
 		if (!isGameOver && levelCode < 0 && Input.anyKey)
 		{
+			aSource.Play();
 			AdvanceLevel();
 		}
 		else if (isGameOver)
