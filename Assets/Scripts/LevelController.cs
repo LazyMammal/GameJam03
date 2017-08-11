@@ -8,8 +8,9 @@ public class LevelController : MonoBehaviour
 	public float maxLevelDuration = 10f; // time kill level
 	public float minDuration = 1f;
 	public bool isTransition = false;
-	private float levelStartTime;
-	private bool levelActive = false;
+	private float levelStartTime, levelDoneTime = 0f;
+	private bool levelActive = false, spawnFlag = true;
+	private HashSet<int> enemySet = new HashSet<int>();
 
 	public void DoLevelStart(int levelCode)
 	{
@@ -29,7 +30,7 @@ public class LevelController : MonoBehaviour
 	}
 	void Update()
 	{
-		if (levelActive && Time.time - levelStartTime > maxLevelDuration)
+		if (levelActive && (Time.time - levelStartTime > maxLevelDuration) || (levelDoneTime != 0f && Time.time > levelDoneTime))
 		{
 			levelActive = false;
 			DoLevelDone();
@@ -41,15 +42,25 @@ public class LevelController : MonoBehaviour
 		}
 
 	}
-
+	public void EnemySpawned(int id)
+	{
+		enemySet.Add(id);
+		spawnFlag = true;
+	}
+	public void EnemyKilled(int id)
+	{
+		enemySet.Remove(id);
+		if(spawnFlag && enemySet.Count == 0)
+		{
+			levelDoneTime = Time.time + minDuration;
+		}
+	}
 	public bool isLevelActive()
 	{
 		return levelActive;
 	}
-
 	public float GetLevelStartTime()
 	{
 		return levelStartTime;
 	}
-
 }

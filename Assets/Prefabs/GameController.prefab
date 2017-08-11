@@ -77,4 +77,4 @@ MonoBehaviour:
   maxPlayerLives: 3
   startLevel: -1
   playerScore: 0
-  killScore: 10
+  killScore: 5

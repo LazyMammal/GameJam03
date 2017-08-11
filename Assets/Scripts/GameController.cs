@@ -34,7 +34,8 @@ public class GameController : MonoBehaviour
 	void Start()
 	{
 		playerLivesCount = maxPlayerLives;
-		if (startLevel >= 0 && startLevel < levels.Length) {
+		if (startLevel >= 0 && startLevel < levels.Length)
+		{
 			AdvanceLevel(startLevel);
 		}
 	}
@@ -99,11 +100,16 @@ public class GameController : MonoBehaviour
 		}
 	}
 
-	public void EnemyKilled()
+	public void EnemySpawned(int id)
+	{
+		lvlCtrl.EnemySpawned(id);
+	}
+	public void EnemyKilled(int id)
 	{
 		playerScore += killScore;
 		Text txt = scoreText.GetComponent<Text>();
 		txt.text = playerScore.ToString();
+		lvlCtrl.EnemyKilled(id);
 	}
 
 	public void DoGameOver()

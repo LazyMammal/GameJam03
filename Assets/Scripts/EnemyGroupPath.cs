@@ -12,16 +12,18 @@ public class EnemyGroupPath : MonoBehaviour
 	public float speed = 7f, delay = 0f;
 	public float spacing = 1.5f;
 	public bool randomize = true;
-	private BGCurve curve1;
 	private BGCcMath math1;
 	private float startTime;
 	private int enemyIndex = 0;
-
+	public GameController gameCtrl;
 	void Start()
 	{
+		if (gameCtrl == null)
+		{
+			GameObject go = GameObject.Find("GameController");
+			gameCtrl = (GameController)go.GetComponent(typeof(GameController));
+		}
 		startTime = Time.time;
-
-		curve1 = path1.GetComponent<BGCurve>();
 		math1 = path1.GetComponent<BGCcMath>();
 
 		// spawn enemies
@@ -41,9 +43,9 @@ public class EnemyGroupPath : MonoBehaviour
 				}
 				GameObject go = (GameObject)Instantiate(item, pos3, Quaternion.identity); // local space coordinates
 				go.transform.SetParent(transform, false); // transform to world space by nesting with parent
+				gameCtrl.EnemySpawned(go.GetInstanceID());
 			}
 		}
-
 	}
 
 	void Update()
@@ -61,7 +63,7 @@ public class EnemyGroupPath : MonoBehaviour
 				{
 					// get current position ratio
 					float curDist;
-					var pos = math1.CalcPositionByClosestPoint(t.localPosition, out curDist); // compare using local position
+					math1.CalcPositionByClosestPoint(t.localPosition, out curDist); // compare using local position
 					var curRatio = curDist / maxDist;
 					trList.Add(t);
 					ratioList.Add(curRatio);
@@ -72,7 +74,6 @@ public class EnemyGroupPath : MonoBehaviour
 			maxDist = math1.Math.GetDistance();
 			var spacingRatio = spacing / maxDist;
 			float deltaRatio = Time.deltaTime * speed / maxDist;
-			float distPrev = maxDist + spacing - .05f;
 
 			// update positions in curve
 			float ratio = 1f + spacingRatio - 0.01f;

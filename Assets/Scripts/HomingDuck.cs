@@ -17,13 +17,19 @@ public class HomingDuck : MonoBehaviour
 	}
 	void Update()
 	{
+		if (playerShip == null)
+		{
+			playerShip = GameObject.Find("PlayerShip").transform;
+		}
 		Vector3 vec = playerShip.position - transform.position;
 		rb.velocity = speed * vec.normalized;
 		float flip = Vector3.Dot(vec, transform.right);
-		if( flip >= 0f ) {
+		if (flip >= 0f)
+		{
 			transform.localScale = new Vector3(-1f, 1f, 1f);
 		}
-		else {
+		else
+		{
 			transform.localScale = Vector3.one;
 		}
 	}

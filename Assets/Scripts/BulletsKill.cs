@@ -22,7 +22,7 @@ public class BulletsKill : MonoBehaviour
 	{
 		if (other.gameObject.CompareTag("Bullet"))
 		{
-			gameCtrl.EnemyKilled();
+			gameCtrl.EnemyKilled(gameObject.GetInstanceID());
 			Destroy(other.transform.parent.gameObject);
 			GameObject go = (GameObject)Instantiate(explosion, transform.position, Quaternion.identity);
 			Destroy(gameObject);

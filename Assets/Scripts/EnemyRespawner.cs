@@ -10,6 +10,16 @@ public class EnemyRespawner : MonoBehaviour
 	private float nextTime = 0f;
 	private int enemyIndex = 0;
 
+	public GameController gameCtrl;
+	void Start()
+	{
+		if (gameCtrl == null)
+		{
+			GameObject go = GameObject.Find("GameController");
+			gameCtrl = (GameController)go.GetComponent(typeof(GameController));
+		}
+	}
+
 	void Update()
 	{
 		// spawn enemies
@@ -26,6 +36,7 @@ public class EnemyRespawner : MonoBehaviour
 				item = Enemy_Types[(enemyIndex++) % Enemy_Types.Length].gameObject;
 			}
 			GameObject go = (GameObject)Instantiate(item, transform.position, transform.rotation);
+			gameCtrl.EnemySpawned(go.GetInstanceID());
 		}
 	}
 }
