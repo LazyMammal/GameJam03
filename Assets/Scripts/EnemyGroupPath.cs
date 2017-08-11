@@ -11,7 +11,7 @@ public class EnemyGroupPath : MonoBehaviour
 	public int quantity = 5;
 	public float speed = 7f, delay = 0f;
 	public float spacing = 1.5f;
-	public bool randomize = true;
+	public bool randomize = true, isHoming = true;
 	private BGCcMath math1;
 	private float startTime;
 	private int enemyIndex = 0;
@@ -84,7 +84,7 @@ public class EnemyGroupPath : MonoBehaviour
 				trList[j].localPosition = pos; // set via local position
 
 				// if ratio is close to 1.0, remove from list of children and zoom to player
-				if (ratio >= .95f)
+				if (isHoming && ratio >= .95f)
 				{
 					trList[j].parent = null;
 					trList[j].gameObject.AddComponent(typeof(HomingDuck));
