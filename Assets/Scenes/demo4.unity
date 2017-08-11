@@ -1567,7 +1567,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114029028841075054, guid: ca4f0a464b9b317409128610553be40f,
+    - target: {fileID: 114875996852188524, guid: ca4f0a464b9b317409128610553be40f,
+        type: 2}
+      propertyPath: gameCtrl
+      value: 
+      objectReference: {fileID: 566132917}
+    - target: {fileID: 114855830662593312, guid: ca4f0a464b9b317409128610553be40f,
         type: 2}
       propertyPath: gameCtrl
       value: 
@@ -1577,7 +1582,7 @@ Prefab:
       propertyPath: gameCtrl
       value: 
       objectReference: {fileID: 566132917}
-    - target: {fileID: 114855830662593312, guid: ca4f0a464b9b317409128610553be40f,
+    - target: {fileID: 114029028841075054, guid: ca4f0a464b9b317409128610553be40f,
         type: 2}
       propertyPath: gameCtrl
       value: 
