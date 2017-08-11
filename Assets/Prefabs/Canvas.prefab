@@ -1464,6 +1464,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameCtrl: {fileID: 0}
+  zigZag: {fileID: 0}
   maxLevelDuration: 5
   minDuration: 2
   isTransition: 1
@@ -1490,7 +1491,7 @@ MonoBehaviour:
   delay: 0
   spacing: 1.3
   randomize: 0
-  isHoming: 0
+  handleIdle: 0
   gameCtrl: {fileID: 0}
 --- !u!114 &114209791200277874
 MonoBehaviour:
@@ -1504,6 +1505,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameCtrl: {fileID: 0}
+  zigZag: {fileID: 0}
   maxLevelDuration: 5
   minDuration: 2
   isTransition: 1
@@ -1573,6 +1575,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameCtrl: {fileID: 0}
+  zigZag: {fileID: 0}
   maxLevelDuration: 5
   minDuration: 2
   isTransition: 1
@@ -1629,6 +1632,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameCtrl: {fileID: 0}
+  zigZag: {fileID: 0}
   maxLevelDuration: 5
   minDuration: 2
   isTransition: 1
@@ -1711,6 +1715,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameCtrl: {fileID: 0}
+  zigZag: {fileID: 0}
   maxLevelDuration: 5
   minDuration: 2
   isTransition: 1
@@ -1775,6 +1780,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameCtrl: {fileID: 0}
+  zigZag: {fileID: 0}
   maxLevelDuration: 5
   minDuration: 2
   isTransition: 1
@@ -1790,6 +1796,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameCtrl: {fileID: 0}
+  zigZag: {fileID: 0}
   maxLevelDuration: 5
   minDuration: 2
   isTransition: 1
@@ -1805,6 +1812,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameCtrl: {fileID: 0}
+  zigZag: {fileID: 0}
   maxLevelDuration: 5
   minDuration: 2
   isTransition: 1
@@ -1853,6 +1861,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameCtrl: {fileID: 0}
+  zigZag: {fileID: 0}
   maxLevelDuration: 10
   minDuration: 2
   isTransition: 1

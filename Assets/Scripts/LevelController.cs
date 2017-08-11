@@ -5,6 +5,7 @@ using UnityEngine;
 public class LevelController : MonoBehaviour
 {
 	public GameController gameCtrl;
+	public GameObject zigZag;
 	public float maxLevelDuration = 10f; // time kill level
 	public float minDuration = 1f;
 	public bool isTransition = false;
@@ -50,9 +51,17 @@ public class LevelController : MonoBehaviour
 	public void EnemyKilled(int id, bool playerIsKiller = true)
 	{
 		enemySet.Remove(id);
-		if(spawnFlag && enemySet.Count == 0)
+		if (spawnFlag && enemySet.Count == 0)
 		{
 			levelDoneTime = Time.time + minDuration;
+		}
+	}
+	public void EnemyIdle(GameObject enemy)
+	{
+		if (zigZag != null)
+		{
+			enemy.transform.parent = zigZag.transform;
+			zigZag.SetActive(true);
 		}
 	}
 	public bool isLevelActive()

@@ -115,7 +115,10 @@ public class GameController : MonoBehaviour
 		txt.text = playerScore.ToString();
 		lvlCtrl.EnemyKilled(id, playerIsKiller);
 	}
-
+	public void EnemyIdle(GameObject enemy)
+	{
+		lvlCtrl.EnemyIdle(enemy);
+	}
 	public void DoGameOver()
 	{
 		isGameOver = true;

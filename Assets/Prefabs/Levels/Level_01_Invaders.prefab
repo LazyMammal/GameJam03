@@ -59,7 +59,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1696535010645812
 GameObject:
   m_ObjectHideFlags: 0
@@ -143,6 +143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
+  startDelay: 0
   verticalSpacing: 1.2
   horizontalLimits: {x: -2.5, y: 2.5}
   verticalLimits: {x: -10, y: 10}
@@ -164,6 +165,7 @@ MonoBehaviour:
   spacing: {x: 1.4, y: 1.4}
   horizontal_align: 1
   vertical_align: 1
+  gameCtrl: {fileID: 0}
 --- !u!114 &114783165511491552
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -175,7 +177,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8521230242a8964b8932d76d88e35f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxLevelDuration: 10
+  gameCtrl: {fileID: 0}
+  maxLevelDuration: 20
   minDuration: 1
   isTransition: 0
 --- !u!114 &114901293155095592
@@ -196,6 +199,7 @@ MonoBehaviour:
   spacing: {x: 1.4, y: 1.4}
   horizontal_align: 1
   vertical_align: 1
+  gameCtrl: {fileID: 0}
 --- !u!114 &114963409182181230
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -214,3 +218,4 @@ MonoBehaviour:
   spacing: {x: 1.4, y: 1.4}
   horizontal_align: 1
   vertical_align: 1
+  gameCtrl: {fileID: 0}

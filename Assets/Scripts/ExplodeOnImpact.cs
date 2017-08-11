@@ -21,11 +21,15 @@ public class ExplodeOnImpact : MonoBehaviour
 	}
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		if (other.gameObject.CompareTag("Player"))
+		if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Kill"))
 		{
 			gameCtrl.EnemyKilled(gameObject.GetInstanceID(), false);
 			Quaternion rot = Quaternion.Euler(0, 0, Random.Range(0f, 360f));
 			GameObject go = (GameObject)Instantiate(explosion, transform.position, rot);
+			if( other.gameObject.CompareTag("Kill") )
+			{
+				go.GetComponent<AudioSource>().volume = 0f;
+			}
 			Destroy(gameObject);
 		}
 	}
