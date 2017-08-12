@@ -1832,6 +1832,11 @@ Prefab:
       propertyPath: isBonus
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114915476607744708, guid: 2ba66d05b3e79c44c91e7ba64a682684,
+        type: 2}
+      propertyPath: minDuration
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2ba66d05b3e79c44c91e7ba64a682684, type: 2}
   m_IsPrefabParent: 0
