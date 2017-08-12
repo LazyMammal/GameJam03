@@ -2,21 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScrollingBackground : MonoBehaviour {
-
-    public float scrollSpeed = 0.5f;
-    public Renderer rend;
-
-	// Use this for initialization
-	void Start () {
-        rend = GetComponent<Renderer>();
+public class ScrollingBackground : MonoBehaviour
+{
+	public float scrollSpeed = 0.5f;
+    private MeshRenderer meshRend;
+	void Start()
+	{
+		meshRend = GetComponent<MeshRenderer>();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-
-        float offset = Time.time * scrollSpeed;
-        rend.material.SetTextureOffset("_MainTex", new Vector2(0, offset));
-
-    }
+	void Update()
+	{
+		float offset = Time.time * scrollSpeed;
+		meshRend.material.SetTextureOffset("_MainTex", new Vector2(0, offset));
+	}
 }
