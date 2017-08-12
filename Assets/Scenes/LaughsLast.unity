@@ -1827,15 +1827,9 @@ Prefab:
       propertyPath: gameCtrl
       value: 
       objectReference: {fileID: 566132917}
-    - target: {fileID: 114915476607744708, guid: 2ba66d05b3e79c44c91e7ba64a682684,
-        type: 2}
-      propertyPath: isBonus
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114915476607744708, guid: 2ba66d05b3e79c44c91e7ba64a682684,
-        type: 2}
-      propertyPath: minDuration
-      value: 15
+    - target: {fileID: 1190961045790712, guid: 2ba66d05b3e79c44c91e7ba64a682684, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2ba66d05b3e79c44c91e7ba64a682684, type: 2}
@@ -2046,6 +2040,10 @@ Prefab:
       propertyPath: gameCtrl
       value: 
       objectReference: {fileID: 566132917}
+    - target: {fileID: 1989765860869192, guid: 0f529850d01642f4b949c0a9bf371f7b, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0f529850d01642f4b949c0a9bf371f7b, type: 2}
   m_IsPrefabParent: 0

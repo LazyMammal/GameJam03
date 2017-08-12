@@ -74,6 +74,7 @@ public class BossDogController : MonoBehaviour
 
 		yield return new WaitForSeconds(3f);
 		gameCtrl.EnemyKilled(gameObject.GetInstanceID());
+		gameCtrl.AdvanceLevel();
 	}
 
 	public IEnumerator ExplodeWait(float wait = 0f)
