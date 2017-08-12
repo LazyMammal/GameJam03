@@ -142,7 +142,7 @@ public class PlayerController : MonoBehaviour
 			}
 			sprite.rotation = Quaternion.Euler(rot.x, rot.y, angle);
 		}
-
+/*
 		if (Input.GetAxis("Fire3") > 0)
 		{
 			playerDead = true;
@@ -158,7 +158,7 @@ public class PlayerController : MonoBehaviour
 			//Destroy(gameObject, this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length + 2.5f);   // destroy player object after explosion animation completes
 
 		}
-
+ */
 		if (Input.GetAxis("Vertical") == 0 && Input.GetAxis("Horizontal") == 0)
 		{
 			playerShipAcceleration = 1f;
