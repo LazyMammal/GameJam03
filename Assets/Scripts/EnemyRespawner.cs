@@ -37,6 +37,8 @@ public class EnemyRespawner : MonoBehaviour
 				item = Enemy_Types[enemyIndex % Enemy_Types.Length].gameObject;
 			}
 			GameObject go = (GameObject)Instantiate(item, transform.position, transform.rotation);
+			go.transform.parent = transform;
+
 			if (registerEnemies)
 				gameCtrl.EnemySpawned(go.GetInstanceID());
 			enemyIndex++;

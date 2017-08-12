@@ -150,12 +150,15 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   startSplash: {fileID: 0}
   gameOver: {fileID: 0}
   mainGame: {fileID: 0}
   playerShip: {fileID: 0}
   scoreText: {fileID: 0}
   playArea: {fileID: 0}
+  titleCard: {fileID: 0}
   maxPlayerLives: 3
   startLevel: -1
   playerScore: 0

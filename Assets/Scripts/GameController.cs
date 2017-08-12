@@ -7,17 +7,17 @@ using UnityEngine.UI;
 public class GameController : MonoBehaviour
 {
 	public GameObject[] levels;
-	public GameObject startSplash, gameOver, mainGame, playerShip, scoreText, playArea;
+	public GameObject startSplash, gameOver, mainGame, playerShip, scoreText, playArea, titleCard;
 	public int maxPlayerLives = 3, startLevel = -1;
 	public int playerScore = 0, killScore = 5;
 
 	private int levelCode = -1;  // startSplash == -1
-	private int playerLivesCount = 0;
+	private int playerLivesCount = 0, levelStageNum = 0;
 	private bool isGameOver = false;
 	private LevelController lvlCtrl;
 	private AudioSource aSource;
+	private ShootBullets[] shootBullets;
 
-	// early start code
 	void Awake()
 	{
 		startSplash.SetActive(true);
@@ -25,17 +25,19 @@ public class GameController : MonoBehaviour
 		mainGame.SetActive(false);
 		playerShip.SetActive(false);
 		playArea.SetActive(false);
+		titleCard.SetActive(false);
 
 		foreach (var lvl in levels)
 		{
-			lvl.SetActive(false);
+			if (lvl != null)
+				lvl.SetActive(false);
 		}
 	}
-
-	// Use this for initialization
 	void Start()
 	{
 		aSource = GetComponent<AudioSource>();
+		shootBullets = playerShip.GetComponentsInChildren<ShootBullets>();
+
 		playerLivesCount = maxPlayerLives;
 		if (startLevel >= 0 && startLevel < levels.Length)
 		{
@@ -68,6 +70,14 @@ public class GameController : MonoBehaviour
 
 	public void AdvanceLevel(int level = -1)
 	{
+		startSplash.SetActive(false);
+		gameOver.SetActive(false);
+		titleCard.SetActive(false);
+		mainGame.SetActive(true);
+
+		if (levelCode >= 0 && levelCode < levels.Length && levels[levelCode] != null)
+			levels[levelCode].SetActive(false);
+
 		if (level >= 0)
 		{
 			levelCode = level;
@@ -77,21 +87,23 @@ public class GameController : MonoBehaviour
 			levelCode += 1;
 		}
 
-		if (levelCode >= 0 && levelCode < levels.Length)
+		while (levelCode >= 0 && levelCode < levels.Length)
 		{
-			Debug.Log("Advance Level: changing to level " + levelCode);
-			startSplash.SetActive(false);
-			gameOver.SetActive(false);
-			mainGame.SetActive(true);
-			levels[levelCode].SetActive(true);
-			lvlCtrl = (LevelController)levels[levelCode].GetComponent(typeof(LevelController));
-			lvlCtrl.DoLevelStart(levelCode);
+			if (levels[levelCode] != null)
+			{
+				Debug.Log("Advance Level: changing to level " + levelCode);
+				levels[levelCode].SetActive(true);
+				lvlCtrl = (LevelController)levels[levelCode].GetComponent(typeof(LevelController));
+				lvlCtrl.DoLevelStart(levelCode);
+				break;
+			}
+			levelCode++;
 		}
-		else if (levelCode >= levels.Length)
+
+		if (levelCode >= levels.Length)
 		{
 			DoGameOver();
 		}
-		else Debug.Log("Advance Level: invalid level, " + levelCode);
 	}
 
 	public void PlayerKilled()
@@ -124,10 +136,17 @@ public class GameController : MonoBehaviour
 	{
 		isGameOver = true;
 		startSplash.SetActive(false);
-		gameOver.SetActive(true);
 		mainGame.SetActive(false);
 		playerShip.SetActive(false);
 		playArea.SetActive(false);
+
+		gameOver.SetActive(true);
+		Text [] txt = gameOver.GetComponentsInChildren<Text>();
+		foreach(Text t in txt)
+		{
+			if( t.name == "ScoreText")
+				t.text = playerScore.ToString();
+		}
 	}
 
 	public void SetPlayerShip(bool flag = true)
@@ -135,4 +154,31 @@ public class GameController : MonoBehaviour
 		playerShip.SetActive(flag);
 		playArea.SetActive(flag);
 	}
+	public void SetFireActive(bool flag = true)
+	{
+		foreach (var sb in shootBullets)
+			sb.fireActive = flag;
+	}
+
+	public void SetTitleCard(bool isBonus)
+	{
+		titleCard.SetActive(true);
+		string titleText = "STAGE 0";
+		if (isBonus)
+		{
+			titleText = "BONUS STAGE !!";
+		}
+		else
+		{
+			titleText += ++levelStageNum;
+		}
+		Text txt = titleCard.GetComponentInChildren<Text>();
+		txt.text = titleText;
+	}
+
+	public void ClearTitleCard()
+	{
+		titleCard.SetActive(false);
+	}
+
 }

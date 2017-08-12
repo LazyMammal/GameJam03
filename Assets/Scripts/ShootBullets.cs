@@ -6,12 +6,13 @@ public class ShootBullets : MonoBehaviour
 {
 	public Transform[] Bullet_Types;
 	public Transform BulletSpawnPoint; // Y-forward orientation
+	public bool fireActive = true;
 	public float fireRate = 10f; // per second
 	private float nextTime = 0.0f;
 
 	void Update()
 	{
-		if (Input.GetButton("Fire1") && Time.time > nextTime)
+		if (fireActive && Input.GetButton("Fire1") && Time.time > nextTime)
 		{
 			nextTime = Time.time + 1f / fireRate;
 			ShootBullet();

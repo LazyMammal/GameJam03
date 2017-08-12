@@ -50,6 +50,7 @@ public class BossDogController : MonoBehaviour
 						t.gameObject.SetActive(false);
 					}
 				}
+				gameCtrl.SetFireActive(false);
 				StartCoroutine(DeathWait());
 			}
 		}
@@ -61,16 +62,18 @@ public class BossDogController : MonoBehaviour
 
 	public IEnumerator DeathWait()
 	{
-		yield return new WaitForSeconds(1f);
-
-		gameCtrl.EnemyKilled(gameObject.GetInstanceID());
-		for (int i = 0; i < numBossExplosions; i++)
+		StartCoroutine(ExplodeWait(0f));
+		for (int i = 1; i < numBossExplosions; i++)
 		{
 			StartCoroutine(ExplodeWait(Random.Range(0f, .5f)));
 		}
 
-		yield return new WaitForSeconds(2f);
-		Destroy(gameObject);
+		yield return new WaitForSeconds(.5f);
+		SpriteRenderer sr = gameObject.GetComponent<SpriteRenderer>();
+		sr.enabled = false;
+
+		yield return new WaitForSeconds(3f);
+		gameCtrl.EnemyKilled(gameObject.GetInstanceID());
 	}
 
 	public IEnumerator ExplodeWait(float wait = 0f)
