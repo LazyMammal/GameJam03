@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class GameController : MonoBehaviour
 {
 	public GameObject[] levels;
-	public GameObject startSplash, gameOver, mainGame, playerShip, scoreText;
+	public GameObject startSplash, gameOver, mainGame, playerShip, scoreText, playArea;
 	public int maxPlayerLives = 3, startLevel = -1;
 	public int playerScore = 0, killScore = 5;
 
@@ -24,6 +24,7 @@ public class GameController : MonoBehaviour
 		gameOver.SetActive(false);
 		mainGame.SetActive(false);
 		playerShip.SetActive(false);
+		playArea.SetActive(false);
 
 		foreach (var lvl in levels)
 		{
@@ -126,10 +127,12 @@ public class GameController : MonoBehaviour
 		gameOver.SetActive(true);
 		mainGame.SetActive(false);
 		playerShip.SetActive(false);
+		playArea.SetActive(false);
 	}
 
 	public void SetPlayerShip(bool flag = true)
 	{
 		playerShip.SetActive(flag);
+		playArea.SetActive(flag);
 	}
 }

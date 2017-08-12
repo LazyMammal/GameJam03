@@ -155,6 +155,7 @@ MonoBehaviour:
   mainGame: {fileID: 0}
   playerShip: {fileID: 0}
   scoreText: {fileID: 0}
+  playArea: {fileID: 0}
   maxPlayerLives: 3
   startLevel: -1
   playerScore: 0

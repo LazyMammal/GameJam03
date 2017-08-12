@@ -29,9 +29,10 @@ public class BulletsKill : MonoBehaviour
 			gameCtrl.EnemyKilled(gameObject.GetInstanceID());
 
 			Destroy(other.transform.parent.gameObject);
-			Instantiate(bulletHit, other.transform.position, Quaternion.identity);
-
 			Quaternion rot = Quaternion.Euler(0, 0, Random.Range(0f, 360f));
+			Instantiate(bulletHit, other.transform.position, rot);
+
+			rot = Quaternion.Euler(0, 0, Random.Range(0f, 360f));
 			Instantiate(explosion, transform.position, rot);
 
 			Destroy(gameObject);

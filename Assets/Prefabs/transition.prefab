@@ -52,6 +52,7 @@ GameObject:
   - component: {fileID: 224771542831615964}
   - component: {fileID: 222419126055235818}
   - component: {fileID: 114124250699295636}
+  - component: {fileID: 223018451357613344}
   m_Layer: 0
   m_Name: Level1Text
   m_TagString: Untagged
@@ -136,8 +137,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -848326115
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 2955a52dd9966d24ea64f3a78198ac6f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -155,6 +156,26 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1783289033299710}
+--- !u!223 &223018451357613344
+Canvas:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1783289033299710}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 1
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: -990129103
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
 --- !u!224 &224110717282535714
 RectTransform:
   m_ObjectHideFlags: 1
